@@ -1,0 +1,36 @@
+rails new sampleapp -d postgresql
+cd sampleapp
+code .
+Add dtatabase.yml host:  127.0.0.1 
+                            username: postgres
+                            password: sydney2020
+rails db:create
+rails db:migrate
+code .
+rails s
+Open new terminal 
+rails g controller home page ( generate conft, routes, home/page)
+In routes change  root 'home#page'
+add bootstrap in gemfile after the custom gemfile
+        gem 'bootstrap', '~> 4.5.0'
+        gem 'simple_form'
+        gem 'devise'
+        gem 'jquery-rails'
+rename stylesheets/application.css to .scss and add @import "bootstrap";
+Add javascript library in application.js //= require jquery3
+                                         //= require popper
+                                         //= require bootstrap-sprockets
+run bundle in terminal
+restart the terminal           
+run: rails generate simple_form:install --bootstrap    
+run: rails generate devise:install  
+in confif/envorment/development.rb add :  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+in app/views/layouts/application.html.erb. add :   <p class="notice"><%= notice %></p>
+                                                   <p class="alert"><%= alert %></p>     
+$  rails g devise:views
+$ rails generate devise User       
+$ rails db:migrate
+in controllers/application_controllers add: before_action :authenticate_user!
+<div class="container"> in application.html.erb
+Create Partials folder in view, add file _navbar.html.erb and then Add bootstrap navbar code 
+application.html.erb add <%= render "partials/navbar"%>
