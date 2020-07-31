@@ -34,3 +34,19 @@ in controllers/application_controllers add: before_action :authenticate_user!
 <div class="container"> in application.html.erb
 Create Partials folder in view, add file _navbar.html.erb and then Add bootstrap navbar code 
 application.html.erb add <%= render "partials/navbar"%>
+do require changes in navbar stylying
+_navbar add logout before <a> tag line: <% link_to "logout", destroy_user_session_path, methid:"DELETE"%>
+Image uposd: drag image in assets/image foler and <%= image_tag "puffroll.jpg"%>
+rails g scaffold Menu name description:text price:integer availability:boolean 
+category user:references
+rails db:migrate
+rails g migration AddPictureToMenu picture
+rails db:migrate
+go to _form.html and <%= f.file_field :picture %> to choose file
+rails active_storage:install
+rails db:migrate
+add :picture in menu controller
+ #establish a link between menu and user in menu controller
+    @menu.user_id = current_user.id
+remove association from form.html add relations in menu.rb one to one or has many
+add picture in show.html    
